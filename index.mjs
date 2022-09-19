@@ -37,6 +37,10 @@ inquirer
   })
   .then((confirm) => {
     if (confirm.deployConfirm) {
-      DeployScript(app);
+      DeployScript({
+        ...app,
+        name: app.name.toLowerCase(),
+        env: app.env.toLowerCase(),
+      });
     }
   });
